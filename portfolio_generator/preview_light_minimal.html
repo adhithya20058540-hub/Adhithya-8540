@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alex Morgan — Full Stack Developer &amp; UI/UX Designer</title>
+  <meta name="description" content="I'm a passionate developer with 5+ years of experience building elegant, scalable web applications. I love turning complex problems into simple, beaut">
+  <style>
+
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display&display=swap');
+
+    :root {
+      --bg: #ffffff;
+      --bg-alt: #f7f7f5;
+      --surface: #ffffff;
+      --border: #e8e8e4;
+      --text: #1a1a18;
+      --text-muted: #737370;
+      --accent: #2d6a4f;
+      --accent-light: #e8f5ee;
+      --accent-hover: #1e4d37;
+      --hero-bg: #f0f4f1;
+      --card-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
+      --font-heading: 'DM Serif Display', Georgia, serif;
+      --font-body: 'DM Sans', sans-serif;
+      --radius: 4px;
+      --radius-lg: 8px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none; color: var(--text-muted);
+      font-size: 0.875rem; font-weight: 500; letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* HERO */
+    #hero {
+      min-height: 100vh;
+      background: var(--hero-bg);
+      display: flex; align-items: center;
+      padding: 100px 5% 80px;
+    }
+    .hero-inner {
+      max-width: 1100px; margin: 0 auto; width: 100%;
+      display: grid; grid-template-columns: 1fr 340px;
+      gap: 60px; align-items: center;
+    }
+    .hero-tag {
+      display: inline-block;
+      background: var(--accent-light); color: var(--accent);
+      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; padding: 5px 14px;
+      border-radius: 100px; margin-bottom: 1.5rem;
+    }
+    .hero-name {
+      font-family: var(--font-heading);
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 1.2rem;
+    }
+    .hero-bio {
+      color: var(--text-muted);
+      font-size: 1.05rem; max-width: 520px;
+      margin-bottom: 2rem;
+    }
+    .btn-primary {
+      display: inline-block;
+      background: var(--accent); color: #fff;
+      padding: 13px 28px; border-radius: var(--radius);
+      text-decoration: none; font-weight: 600;
+      font-size: 0.9rem; letter-spacing: 0.02em;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
+    .btn-secondary {
+      display: inline-block;
+      border: 1.5px solid var(--border); color: var(--text);
+      padding: 12px 28px; border-radius: var(--radius);
+      text-decoration: none; font-weight: 500;
+      font-size: 0.9rem; margin-left: 12px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+    .hero-photo {
+      width: 300px; height: 300px;
+      border-radius: 50%; object-fit: cover;
+      border: 3px solid var(--border);
+      box-shadow: var(--card-shadow);
+    }
+    .hero-photo-placeholder {
+      width: 300px; height: 300px; border-radius: 50%;
+      background: var(--accent-light);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-heading); font-size: 5rem; color: var(--accent);
+    }
+
+    /* SECTIONS */
+    section { padding: 100px 5%; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      color: var(--text); margin-bottom: 3rem;
+    }
+    .section-divider {
+      width: 40px; height: 2px; background: var(--accent);
+      margin: 1rem 0 3rem;
+    }
+
+    /* ABOUT */
+    #about { background: var(--bg); }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;
+    }
+    .about-text p { color: var(--text-muted); margin-bottom: 1rem; }
+
+    /* SKILLS */
+    #skills { background: var(--bg-alt); }
+    .skills-grid {
+      display: flex; flex-wrap: wrap; gap: 10px;
+    }
+    .skill-tag {
+      background: var(--surface); border: 1px solid var(--border);
+      color: var(--text); padding: 8px 18px;
+      border-radius: 100px; font-size: 0.875rem; font-weight: 500;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .skill-tag:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* EDUCATION */
+    #education { background: var(--bg); }
+    .edu-list { display: flex; flex-direction: column; gap: 24px; }
+    .edu-card {
+      background: var(--bg-alt); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 28px 32px;
+      border-left: 3px solid var(--accent);
+    }
+    .edu-degree { font-weight: 700; font-size: 1.05rem; margin-bottom: 4px; }
+    .edu-meta { color: var(--accent); font-size: 0.875rem; font-weight: 500; margin-bottom: 8px; }
+    .edu-desc { color: var(--text-muted); font-size: 0.9rem; }
+
+    /* PROJECTS */
+    #projects { background: var(--bg-alt); }
+    .projects-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+    }
+    .project-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 32px;
+      box-shadow: var(--card-shadow);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .project-card:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(0,0,0,0.1); }
+    .project-name { font-family: var(--font-heading); font-size: 1.25rem; margin-bottom: 10px; }
+    .project-desc { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 16px; }
+    .project-tech { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
+    .tech-badge {
+      background: var(--accent-light); color: var(--accent);
+      font-size: 0.75rem; font-weight: 600; padding: 3px 10px;
+      border-radius: 100px;
+    }
+    .project-link {
+      color: var(--accent); font-weight: 600; font-size: 0.875rem;
+      text-decoration: none;
+    }
+    .project-link:hover { text-decoration: underline; }
+
+    /* EXPERIENCE */
+    #experience { background: var(--bg); }
+    .exp-timeline { display: flex; flex-direction: column; gap: 0; }
+    .exp-item {
+      display: grid; grid-template-columns: 160px 1fr;
+      gap: 40px; padding-bottom: 40px;
+      border-left: 1px solid var(--border); margin-left: 20px; padding-left: 40px;
+      position: relative;
+    }
+    .exp-item::before {
+      content: ''; position: absolute; left: -5px; top: 6px;
+      width: 9px; height: 9px; border-radius: 50%;
+      background: var(--accent); border: 2px solid var(--bg);
+    }
+    .exp-period { color: var(--text-muted); font-size: 0.85rem; font-weight: 500; padding-top: 4px; }
+    .exp-role { font-weight: 700; font-size: 1.05rem; margin-bottom: 4px; }
+    .exp-company { color: var(--accent); font-weight: 600; font-size: 0.9rem; margin-bottom: 10px; }
+    .exp-desc { color: var(--text-muted); font-size: 0.9rem; }
+
+    /* CONTACT */
+    #contact { background: var(--bg-alt); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+    .contact-item { display: flex; gap: 14px; margin-bottom: 24px; align-items: flex-start; }
+    .contact-icon {
+      width: 42px; height: 42px; border-radius: 50%;
+      background: var(--accent-light); color: var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; flex-shrink: 0;
+    }
+    .contact-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text-muted); }
+    .contact-value { color: var(--text); font-weight: 500; }
+    .contact-value a { color: var(--accent); text-decoration: none; }
+    .contact-value a:hover { text-decoration: underline; }
+
+    /* FOOTER */
+    footer {
+      background: var(--text); color: rgba(255,255,255,0.6);
+      text-align: center; padding: 32px;
+      font-size: 0.85rem;
+    }
+    footer strong { color: #fff; }
+
+    @media (max-width: 768px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-photo, .hero-photo-placeholder { display: none; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      .exp-item { grid-template-columns: 1fr; gap: 4px; }
+      .nav-links { display: none; }
+    }
+    
+  </style>
+</head>
+<body>
+
+<!-- ── NAVIGATION ───────────────────────────────── -->
+<nav>
+  <a href="#hero" class="nav-logo">AM</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ─────────────────────────────────────── -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <span class="hero-tag">Full Stack Developer &amp; UI/UX Designer</span>
+      <h1 class="hero-name">Alex Morgan</h1>
+      <p class="hero-bio">I'm a passionate developer with 5+ years of experience building elegant, scalable web applications. I love turning complex problems into simple, beautiful solutions that users actually enjoy.</p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn-primary">View My Work</a>
+        <a href="#contact" class="btn-secondary">Get In Touch</a>
+      </div>
+    </div>
+    <img src="https://i.pravatar.cc/300?img=12" alt="Profile photo" class="hero-photo" />
+  </div>
+</section>
+
+<!-- ── ABOUT ─────────────────────────────────────── -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div>
+        <p class="section-label">Who I Am</p>
+        <h2 class="section-title">About Me</h2>
+        <div class="section-divider"></div>
+        <div class="about-text">
+          <p>I'm a passionate developer with 5+ years of experience building elegant, scalable web applications. I love turning complex problems into simple, beautiful solutions that users actually enjoy.</p>
+          <p>I'm always looking to collaborate on interesting projects and solve meaningful problems. Feel free to explore my work and reach out!</p>
+          
+        </div>
+      </div>
+      <div>
+        
+        <div style="padding-top: 60px; opacity: 0.75; font-size: 0.9rem;">
+          <p style="margin-bottom: 8px;">📧 <a href="mailto:alex.morgan@example.com" style="color: inherit;">alex.morgan@example.com</a></p>
+<p style="margin-bottom: 8px;">💻 <a href="https://github.com/alexmorgan" style="color: inherit;" target="_blank">https://github.com/alexmorgan</a></p>
+<p style="margin-bottom: 8px;">🔗 <a href="https://linkedin.com/in/alexmorgan" style="color: inherit;" target="_blank">LinkedIn Profile</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SKILLS ─────────────────────────────────────── -->
+<section id="skills">
+  <div class="section-inner">
+    <p class="section-label">What I Know</p>
+    <h2 class="section-title">Skills & Technologies</h2>
+    <div class="section-divider"></div>
+    <div class="skills-grid">
+      <span class="skill-tag">Python</span><span class="skill-tag">JavaScript</span><span class="skill-tag">TypeScript</span><span class="skill-tag">React</span><span class="skill-tag">Node.js</span><span class="skill-tag">HTML5</span><span class="skill-tag">CSS3</span><span class="skill-tag">PostgreSQL</span><span class="skill-tag">MongoDB</span><span class="skill-tag">Docker</span><span class="skill-tag">AWS</span><span class="skill-tag">Git</span><span class="skill-tag">Figma</span><span class="skill-tag">REST APIs</span><span class="skill-tag">GraphQL</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── EDUCATION ─────────────────────────────────── -->
+<section id="education">
+  <div class="section-inner">
+    <p class="section-label">My Background</p>
+    <h2 class="section-title">Education</h2>
+    <div class="section-divider"></div>
+    <div class="edu-list">
+      
+            <div class="edu-card">
+              <p class="edu-degree">B.Sc. in Computer Science</p>
+              <p class="edu-meta">State University of Technology &nbsp;·&nbsp; 2018</p>
+              <p class="edu-desc">Graduated with Honors. Focused on software engineering, algorithms, and human-computer interaction.</p>
+            </div>
+
+            <div class="edu-card">
+              <p class="edu-degree">Full Stack Web Development Bootcamp</p>
+              <p class="edu-meta">Tech Academy Online &nbsp;·&nbsp; 2019</p>
+              <p class="edu-desc">Intensive 6-month program covering modern JavaScript frameworks, backend APIs, and cloud deployment.</p>
+            </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROJECTS ──────────────────────────────────── -->
+<section id="projects">
+  <div class="section-inner">
+    <p class="section-label">What I've Built</p>
+    <h2 class="section-title">Featured Projects</h2>
+    <div class="section-divider"></div>
+    <div class="projects-grid">
+      
+        <div class="project-card">
+          <h3 class="project-name">ShopSmart E-Commerce Platform</h3>
+          <p class="project-desc">A fully featured e-commerce platform with product search, cart management, Stripe payments, and an admin dashboard. Supports 10,000+ concurrent users.</p>
+          <div class="project-tech"><span class="tech-badge">React</span><span class="tech-badge">Node.js</span><span class="tech-badge">MongoDB</span><span class="tech-badge">Stripe API</span><span class="tech-badge">AWS S3</span></div>
+          <a href="https://github.com/alexmorgan/shopsmart" target="_blank" class="project-link">View Project</a>
+        </div>
+
+        <div class="project-card">
+          <h3 class="project-name">TaskFlow Project Manager</h3>
+          <p class="project-desc">A Kanban-style project management tool with real-time collaboration, drag-and-drop boards, and team chat integration.</p>
+          <div class="project-tech"><span class="tech-badge">TypeScript</span><span class="tech-badge">React</span><span class="tech-badge">Socket.io</span><span class="tech-badge">PostgreSQL</span><span class="tech-badge">Docker</span></div>
+          <a href="https://github.com/alexmorgan/taskflow" target="_blank" class="project-link">View Project</a>
+        </div>
+
+        <div class="project-card">
+          <h3 class="project-name">WeatherWise Dashboard</h3>
+          <p class="project-desc">An interactive weather dashboard that visualizes 7-day forecasts, historical climate trends, and severe weather alerts using beautiful charts.</p>
+          <div class="project-tech"><span class="tech-badge">Python</span><span class="tech-badge">FastAPI</span><span class="tech-badge">React</span><span class="tech-badge">Chart.js</span><span class="tech-badge">OpenWeather API</span></div>
+          <a href="https://github.com/alexmorgan/weatherwise" target="_blank" class="project-link">View Project</a>
+        </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── EXPERIENCE ────────────────────────────────── -->
+<section id="experience">
+  <div class="section-inner">
+    <p class="section-label">Where I've Worked</p>
+    <h2 class="section-title">Experience</h2>
+    <div class="section-divider"></div>
+    <div class="exp-timeline">
+      
+        <div class="exp-item">
+          <div class="exp-period">2022 – Present</div>
+          <div>
+            <p class="exp-role">Senior Full Stack Developer</p>
+            <p class="exp-company">TechNova Solutions</p>
+            <p class="exp-desc">Leading a team of 4 developers building SaaS products. Architected microservices infrastructure reducing deployment time by 60%. Mentoring junior developers and conducting code reviews.</p>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-period">2019 – 2022</div>
+          <div>
+            <p class="exp-role">Frontend Developer</p>
+            <p class="exp-company">CreativeApps Studio</p>
+            <p class="exp-desc">Built responsive, accessible web applications for 15+ clients across fintech and healthcare sectors. Improved Lighthouse performance scores from 55 to 95+ across all projects.</p>
+          </div>
+        </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ───────────────────────────────────── -->
+<section id="contact">
+  <div class="section-inner">
+    <p class="section-label">Let's Connect</p>
+    <h2 class="section-title">Get In Touch</h2>
+    <div class="section-divider"></div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        
+        <div class="contact-item">
+          <div class="contact-icon">📧</div>
+          <div>
+            <p class="contact-label">Email</p>
+            <p class="contact-value"><a href="mailto:alex.morgan@example.com">alex.morgan@example.com</a></p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">📱</div>
+          <div>
+            <p class="contact-label">Phone</p>
+            <p class="contact-value">+1 (555) 234-5678</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">🔗</div>
+          <div>
+            <p class="contact-label">LinkedIn</p>
+            <p class="contact-value"><a href="https://linkedin.com/in/alexmorgan" target="_blank">LinkedIn Profile</a></p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">💻</div>
+          <div>
+            <p class="contact-label">GitHub</p>
+            <p class="contact-value"><a href="https://github.com/alexmorgan" target="_blank">GitHub Profile</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="contact-cta">
+        <p>I'm currently open to new opportunities, freelance projects, and interesting collaborations. Let's build something great together.</p>
+        <a href="mailto:alex.morgan@example.com" class="btn-primary">Send Me an Email</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ────────────────────────────────────── -->
+<footer>
+  <p>Designed &amp; Built by <strong>Alex Morgan</strong> &nbsp;·&nbsp; Theme: Light Minimal</p>
+  <p style="margin-top: 6px; font-size: 0.78em; opacity: 0.6;">Generated with Portfolio Generator CLI</p>
+</footer>
+
+</body>
+</html>

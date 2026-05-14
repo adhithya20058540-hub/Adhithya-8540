@@ -1,0 +1,52 @@
+{
+  "personal": {
+    "full_name": "Adhithya",
+    "title": "web developer",
+    "bio": "i am motivate computer science student and more interested in full stack web developer with mern stack.",
+    "email": "Adhithya@gmail.com",
+    "phone": "9789973057",
+    "linkedin": "www.linkedin.in",
+    "github": "https://www.github.com",
+    "profile_image": "AD.png"
+  },
+  "skills": [
+    "python",
+    "html",
+    "css",
+    "java script",
+    "MY SQL",
+    "pandas",
+    "numpy",
+    "matplotlip"
+  ],
+  "education": [
+    {
+      "degree": "MCA / Student",
+      "institution": "Guru Nanak College Velachery",
+      "year": "2027",
+      "description": ""
+    }
+  ],
+  "projects": [
+    {
+      "name": "time zone converter",
+      "description": "its convert from different time zone",
+      "tech": [
+        "python",
+        "html",
+        "css",
+        "javascript"
+      ],
+      "link": ""
+    }
+  ],
+  "experience": [
+    {
+      "role": "full stack web developer",
+      "company": "developer hacks",
+      "period": "2022-2029",
+      "description": "to develop , deployment and testing web site"
+    }
+  ],
+  "theme": "dark_neon"
+}
